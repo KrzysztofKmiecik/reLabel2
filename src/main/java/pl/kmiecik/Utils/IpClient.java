@@ -7,28 +7,20 @@ import java.net.UnknownHostException;
 public class IpClient implements Closeable {
 
     public String sendAndReceiveIPMessage(String ipAdress, Integer ipPort, String message) {
-
         String str = "";
-
         try (
                 Socket mySocket = new Socket(ipAdress, ipPort);
                 PrintWriter printWriter = new PrintWriter(mySocket.getOutputStream(), true);
                 BufferedReader in = new BufferedReader(new InputStreamReader(mySocket.getInputStream()))
-
                 //test push
         ) {
 
             printWriter.println(message);
             str = in.readLine();
-
-//
         } catch (Exception e) {
             System.err.println(e.toString());
-
         }
-
         return str;
-
     }
 
     public void echoIP() {
@@ -67,13 +59,10 @@ public class IpClient implements Closeable {
                     hostName);
             System.exit(1);
         }
-
-
     }
 
     @Override
     public void close() throws IOException {
-
     }
 }
 

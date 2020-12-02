@@ -1,5 +1,7 @@
 package pl.kmiecik.Utils;
 
+import org.junit.jupiter.api.Test;
+
 public class RS232Test {
 
     public static void main(String[] args) {
@@ -18,6 +20,14 @@ public class RS232Test {
 
     }
 
+    @Test
+    void validate() {
+        String comPort = "com2";
+        String regex = "^COM\\d";
+        if (comPort.trim().toUpperCase().matches(regex)) {
+
+        }
+    }
 
 
 }

@@ -13,7 +13,6 @@ public class FormatToPrintString {
         final String newAPN = "28114444";
         FormatToPrintString formatToPrintString = new FormatToPrintString();
         String output = formatToPrintString.prepareStringToPrint(input);
-
         System.out.println(output);
     }
 
@@ -23,7 +22,6 @@ public class FormatToPrintString {
             currentAPN = input.substring(0, 8);
         } else {
             currentAPN = input.substring(14, 22);
-
         }
 
         CrossRef newApn = this.getNewApn(currentAPN);
@@ -32,16 +30,13 @@ public class FormatToPrintString {
         return input.replace(currentAPN, newAPN);
     }
 
-
     private CrossRef getNewApn(final String currentAPN) {
-
         MyJson myJson = new MyJson();
         String path = "src/main/resources/CrossRefFile.json";
         Optional<CrossRef> readOptionalCrossRef = myJson.read(currentAPN, path);
         if (readOptionalCrossRef.isPresent()) {
             return readOptionalCrossRef.get();
         }
-
         return null;
     }
 

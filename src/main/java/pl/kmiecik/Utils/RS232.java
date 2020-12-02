@@ -11,10 +11,7 @@ import java.util.concurrent.TimeoutException;
 public class RS232 {
     private final NRSerialPort serial;
 
-
-
     public RS232(String port, int baudRate) {
-
         serial = new NRSerialPort(port, baudRate);
     }
 
@@ -26,13 +23,13 @@ public class RS232 {
         serial.disconnect();
     }
 
-    public void write(String data)  {
+    public void write(String data) {
         try (DataOutputStream outs = new DataOutputStream(serial.getOutputStream());) {
             for (int i = 0; i < data.length(); i++) {
                 char c = data.charAt(i);
                 outs.write(c);
             }
-        }catch(IOException e){
+        } catch (IOException e) {
             System.out.println(e.getMessage());
         }
     }
@@ -53,8 +50,7 @@ public class RS232 {
         return str;
     }
 
-
-    public String writeAndRead(String dataToWrite) throws  TimeoutException {
+    public String writeAndRead(String dataToWrite) throws TimeoutException {
         String responseStr = "";
         this.write(dataToWrite);
         //   System.out.println(addCharEnd("12345",'a'));
@@ -62,7 +58,7 @@ public class RS232 {
         return responseStr;
     }
 
-    public String writeAndReadWithTerminatorDelay(String dataToWrite, char terminator, long timeoutMiliseconds) throws  TimeoutException {
+    public String writeAndReadWithTerminatorDelay(String dataToWrite, char terminator, long timeoutMiliseconds) throws TimeoutException {
         String responseStr = "";
         this.write(dataToWrite);
         //   System.out.println(addCharEnd("12345",'a'));
@@ -73,15 +69,16 @@ public class RS232 {
     private String read(String responseStr) throws TimeoutException {
         try (DataInputStream ins = new DataInputStream(serial.getInputStream())) {
             char b;
-                if (ins.available() > 0) {
-                    b = (char) ins.read();
-                    responseStr = addCharEnd(responseStr, b);
-                }
-        }catch(IOException e){
+            if (ins.available() > 0) {
+                b = (char) ins.read();
+                responseStr = addCharEnd(responseStr, b);
+            }
+        } catch (IOException e) {
             System.out.println(e.getMessage());
         }
         return responseStr;
     }
+
     private String readWithTerminatorAndDelay(String responseStr, char terminator, long timeoutMiliseconds) throws TimeoutException {
         try (DataInputStream ins = new DataInputStream(serial.getInputStream())) {
             char b;
@@ -100,11 +97,12 @@ public class RS232 {
                 }
                 stop = System.currentTimeMillis();
             }
-        }catch(IOException e){
+        } catch (IOException e) {
             System.out.println(e.getMessage());
         }
         return responseStr;
     }
+
     private void wait(int millis) {
         try {
             Thread.sleep(millis);

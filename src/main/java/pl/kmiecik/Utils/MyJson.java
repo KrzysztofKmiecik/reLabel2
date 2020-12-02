@@ -15,20 +15,18 @@ import java.util.Optional;
 
 public class MyJson {
 
-    public Optional<CrossRef> read(final String scannedAPN,final String path) {
+    public Optional<CrossRef> read(final String scannedAPN, final String path) {
 
         //  String str = "[{\"currentAPN\": \"28112233\",\"newAPN\": \"28114444\"},{\"currentAPN\": \"28222233\",\"newAPN\": \"28224444\"}]";
 
         Gson gson = new Gson();
 
-        try ( Reader reader = Files.newBufferedReader(Paths.get(path));){
+        try (Reader reader = Files.newBufferedReader(Paths.get(path));) {
 
-        //  CrossRef crossRef=gson.fromJson(str,CrossRef.class);
-        Type crossRefListType = new TypeToken<ArrayList<CrossRef>>() {
-        }.getType();
-
-        List<CrossRef> crossRefList = gson.fromJson(reader, crossRefListType);
-
+            //  CrossRef crossRef=gson.fromJson(str,CrossRef.class);
+            Type crossRefListType = new TypeToken<ArrayList<CrossRef>>() {
+            }.getType();
+            List<CrossRef> crossRefList = gson.fromJson(reader, crossRefListType);
             return crossRefList.stream()
                     .filter(p -> p.getCurrentAPN().equals(scannedAPN))
                     .findFirst();
@@ -36,10 +34,6 @@ public class MyJson {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         return null;
-
     }
-
-
-    }
+}

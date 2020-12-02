@@ -10,42 +10,29 @@ import java.net.UnknownHostException;
 public class IpClient {
 
     public String sendAndReceiveIPMessage(String ipAdress, Integer ipPort, String message) {
-
         String str = "";
-
         try (
                 Socket mySocket = new Socket(ipAdress, ipPort);
                 PrintWriter printWriter = new PrintWriter(mySocket.getOutputStream(), true);
                 BufferedReader in = new BufferedReader(new InputStreamReader(mySocket.getInputStream()))
-
            //test push
         ) {
-
             printWriter.println(message);
             str = in.readLine();
-
-//
         } catch (  Exception e) {
             System.err.println(e.toString());
-
         }
-
         return str;
-
     }
 
     public void echoIP() {
-
           /* if (args.length != 2) {
             System.err.println(
                     "Usage: java EchoClient <host name> <port number>");
             System.exit(1);
         }*/
-
         String hostName = "10.235.241.235";//args[0];
         int portNumber =24364; //24065;//Integer.parseInt(args[1]);
-
-
         try(
                 Socket echoSocket = new Socket(hostName, portNumber);
                 PrintWriter out =
@@ -70,8 +57,6 @@ public class IpClient {
                     hostName);
             System.exit(1);
         }
-
-
     }
 }
 

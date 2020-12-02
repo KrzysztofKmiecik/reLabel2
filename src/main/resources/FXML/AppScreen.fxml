@@ -7,8 +7,8 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.kmiecik.controller.AppScreenController">
    <children>
-      <TextField fx:id="input2DCode" layoutX="121.0" layoutY="151.0" onKeyTyped="#OnKeyTyped" prefHeight="98.0" prefWidth="350.0" promptText="scan" />
-      <Label fx:id="myStatusLabel" layoutX="14.0" layoutY="261.0" prefHeight="50.0" prefWidth="564.0" text="Label" />
-      <Button layoutX="212.0" layoutY="330.0" mnemonicParsing="false" onAction="#backMenu" prefHeight="27.0" prefWidth="194.0" text="Main Menu" />
+      <TextField fx:id="input2DCode" layoutX="56.0" layoutY="12.0" onKeyTyped="#OnKeyTyped" prefHeight="37.0" prefWidth="502.0" promptText="scan" />
+      <Label fx:id="myStatusLabel" layoutX="57.0" layoutY="56.0" prefHeight="261.0" prefWidth="502.0" text="Label" wrapText="true" />
+      <Button layoutX="212.0" layoutY="350.0" mnemonicParsing="false" onAction="#backMenu" prefHeight="27.0" prefWidth="194.0" text="Main Menu" />
    </children>
 </Pane>

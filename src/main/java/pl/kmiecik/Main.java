@@ -15,13 +15,13 @@ public class Main extends Application {
 
 
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader loader=new FXMLLoader(this.getClass().getResource("/FXML/MainScreen.fxml"));
-        StackPane stackPane=loader.load();
-        Scene scene = new Scene(stackPane, 400, 400);
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/FXML/MainScreen.fxml"));
+        StackPane stackPane = loader.load();
+        Scene scene = new Scene(stackPane, 600, 400);
 
-       primaryStage.setScene(scene);
-       primaryStage.setTitle("reLabel v1.2 kmk APTIV Gdansk 2020");
-       primaryStage.show();
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("reLabel v1.2 kmk APTIV Gdansk 2020");
+        primaryStage.show();
 
     }
 }
