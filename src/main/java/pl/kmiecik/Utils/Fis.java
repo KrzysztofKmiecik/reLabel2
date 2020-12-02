@@ -23,10 +23,10 @@ public class Fis {
 
     public String sendMessageToFis(String old2DCode, String new2DCode, String newAPN) {
 
-        String messageBREQ=null;
-        String responseBREQ = null;
-        String messageBCMP = null;
-        String responseBCMP = null;
+        String messageBREQ="NOmessageBREQ";
+        String responseBREQ ="NOresponseBREQ";
+        String messageBCMP = "NOmessageBCMP";
+        String responseBCMP = "NOresponseBCMP";
         try (IpClient ipClient = new IpClient()) {
             messageBREQ = "BREQ|id=" + old2DCode + "|process=REFLASH|station=BMW_RM_REFLASH_1|newid=" + new2DCode;
             responseBREQ = ipClient.sendAndReceiveIPMessage(ipAdress, port, messageBREQ);
@@ -41,8 +41,8 @@ public class Fis {
             e.printStackTrace();
         }
 
-        StringBuilder result=new StringBuilder(messageBREQ);
-        result.append(responseBREQ).append(messageBCMP).append(responseBCMP);
+        StringBuilder result=new StringBuilder(messageBREQ+";");
+        result.append(responseBREQ+";").append(messageBCMP+";").append(responseBCMP);
         return result.toString();
     }
 }

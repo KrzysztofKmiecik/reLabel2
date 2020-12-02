@@ -6,11 +6,11 @@
 
 <Pane fx:id="saveButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.kmiecik.controller.ParamScreenController">
    <children>
-      <Button layoutX="273.0" layoutY="324.0" mnemonicParsing="false" onAction="#backToMenu" text="Main Menu" />
-      <TextField fx:id="ipAddress" layoutX="39.0" layoutY="56.0" prefHeight="31.0" prefWidth="124.0" promptText="ipAddress" text="10.235.241.235" />
-      <TextField fx:id="ipPort" layoutX="182.0" layoutY="56.0" promptText="ipPort" text="24401" />
-      <TextField fx:id="comPort" layoutX="39.0" layoutY="122.0" prefHeight="31.0" prefWidth="124.0" promptText="comPort" text="COM3" />
-      <TextField fx:id="boundRate" layoutX="180.0" layoutY="122.0" promptText="boundRate" text="9600" />
-      <Button layoutX="401.0" layoutY="54.0" mnemonicParsing="false" onAction="#pressSave" prefHeight="99.0" prefWidth="78.0" text="Save" />
+      <Button layoutX="39.0" layoutY="289.0" mnemonicParsing="false" onAction="#backToMenu" prefHeight="64.0" prefWidth="160.0" text="Main Menu" />
+      <TextField fx:id="ipAddress" layoutX="39.0" layoutY="56.0" prefHeight="27.0" prefWidth="124.0" promptText="ipAddress" text="10.235.241.235" />
+      <TextField fx:id="ipPort" layoutX="182.0" layoutY="56.0" prefHeight="27.0" prefWidth="124.0" promptText="ipPort" text="24401" />
+      <TextField fx:id="comPort" layoutX="39.0" layoutY="122.0" prefHeight="27.0" prefWidth="124.0" promptText="comPort" text="COM3" />
+      <TextField fx:id="boundRate" layoutX="180.0" layoutY="122.0" prefHeight="27.0" prefWidth="124.0" promptText="boundRate" text="9600" />
+      <Button layoutX="355.0" layoutY="56.0" mnemonicParsing="false" onAction="#pressSave" prefHeight="92.0" prefWidth="124.0" text="Save" />
    </children>
 </Pane>

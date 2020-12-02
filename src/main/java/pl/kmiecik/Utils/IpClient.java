@@ -7,7 +7,7 @@ import java.net.UnknownHostException;
 public class IpClient implements Closeable {
 
     public String sendAndReceiveIPMessage(String ipAdress, Integer ipPort, String message) {
-        String str = "";
+        String str = "NOresponse"+message.substring(0,4);
         try (
                 Socket mySocket = new Socket(ipAdress, ipPort);
                 PrintWriter printWriter = new PrintWriter(mySocket.getOutputStream(), true);
