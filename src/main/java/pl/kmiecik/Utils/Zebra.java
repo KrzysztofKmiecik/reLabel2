@@ -1,6 +1,5 @@
 package pl.kmiecik.Utils;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -11,16 +10,15 @@ import java.util.stream.Collectors;
 public class Zebra {
 
 
-
     private String zpl;
     final private RS232 rs232;
 
-    public Zebra(String zpl, RS232 rs232) {
+    public Zebra(String zpl, final RS232 rs232) {
         this.zpl = zpl;
         this.rs232 = rs232;
     }
 
-    public Zebra(RS232 rs232) {
+    public Zebra(final RS232 rs232) {
         this.zpl = "";
         this.rs232 = rs232;
     }
@@ -48,14 +46,14 @@ public class Zebra {
         return receivedStr;
     }
 
-    public String print(String prepareStringToPrint) {
+    public String print(final String prepareStringToPrint) {
         this.open();
         String result = replaceInZpl(prepareStringToPrint);
         this.close();
         return result;
     }
 
-    public void loadZplFromFile(String path) {
+    public void loadZplFromFile(final String path) {
 
         try {
             List<String> zplList = Files.readAllLines(Paths.get(path));

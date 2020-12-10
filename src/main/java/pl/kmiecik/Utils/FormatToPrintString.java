@@ -32,7 +32,7 @@ public class FormatToPrintString {
 
     private CrossRef getNewApn(final String currentAPN) {
         MyJson myJson = new MyJson();
-        String path = "src/main/resources/CrossRefFile.json";
+        String path = MyPaths.CROSS_REF_FILE;
         Optional<CrossRef> readOptionalCrossRef = myJson.read(currentAPN, path);
         if (readOptionalCrossRef.isPresent()) {
             return readOptionalCrossRef.get();

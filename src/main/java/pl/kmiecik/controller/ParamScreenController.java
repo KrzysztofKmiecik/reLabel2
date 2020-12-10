@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import pl.kmiecik.Utils.MyJsonParameters;
+import pl.kmiecik.Utils.MyPaths;
 import pl.kmiecik.Utils.Parameters;
 
 import java.util.Optional;
@@ -37,7 +38,7 @@ public class ParamScreenController {
     public void initialize() {
 
         MyJsonParameters myJsonParameters =new MyJsonParameters();
-        Optional<Parameters> parametersOptional = myJsonParameters.read("src/main/resources/parameters.json");
+        Optional<Parameters> parametersOptional = myJsonParameters.read(MyPaths.PARAMETERS);
         if(parametersOptional.isPresent()){
             ipAddress.setText(parametersOptional.get().getIpAddress());
             ipPort.setText( String.valueOf(parametersOptional.get().getIpPort()));
@@ -64,7 +65,7 @@ public class ParamScreenController {
     public void pressSave(ActionEvent actionEvent) {
         Parameters parameters=new Parameters(ipAddress.getText(),Integer.parseInt(ipPort.getText()),comPort.getText(),Integer.parseInt(boundRate.getText()));
         MyJsonParameters myJsonParameters=new MyJsonParameters();
-        myJsonParameters.save("src/main/resources/parameters.json",parameters);
+        myJsonParameters.save(MyPaths.PARAMETERS,parameters);
 
     }
 }
